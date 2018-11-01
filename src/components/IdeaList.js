@@ -10,10 +10,11 @@ class IdeaList extends React.Component {
     this.handleVisibility = this.handleVisibility.bind(this);
   }
 
+
   handleIdea(event){
     console.log(event.target.value,'event')
     event.preventDefault()
-    this.props.ideasAction(event.target.idea.value,event.target.industry.value)
+    this.props.ideasAction(event.target.idea.value,event.target.industry.value,event.target.description.value)
 
   }
 
@@ -21,34 +22,47 @@ class IdeaList extends React.Component {
     this.props.toggleAction(id)
   }
 
+  // handleSelect(e){
+  //   this.props.selectAction(e.target.value)
+  // }
   render(){
     const ideaList = this.props.ideas.filter(idea => idea.visibility === true)
     .map(idea =>
       <div className = "ideaBox" key={idea.id}>
-        Idea:-{idea.text}<br/>
+        Idea:-<b>{idea.text}</b><br/>
         Industry:-{idea.industry}<br/>
+        Description :- {idea.description}<br/>
         <button onClick={() => this.handleVisibility(idea.id)}>Hide</button>
       </div>
     )
     return(
-      <div>
-        <form onSubmit={this.handleIdea}>
-          Idea:- <input className="ideaText" name="idea" type="text" placeholder="Enter your idea"
-                 autoComplete="off" /><br/>
-          Industry:-<input className="industry" name="industry" type="text" placeholder="Enter your idea"
-                    autoComplete="off" /><br/>
-          <input type="submit" />
-        </form>
+      <div >
+        <div >
+          <form onSubmit={this.handleIdea} >
+            Idea:- <input className="ideaText" name="idea" type="text" placeholder="Enter your idea"
+                   autoComplete="off" /><br/>
+            Industry:-<input className="industry" name="industry" type="text" placeholder="Enter your idea"
+                      autoComplete="off" /><br/>
+            Description:-<input className="description" name="description" type="text" placeholder="Enter your idea"
+                      autoComplete="off" /><br/>
+            <input type="submit" />
+          </form>
+        </div>
         <hr/>
 
         <div className="header">
           <h4>Idea Board</h4>
+          <select className="toggleVisibilty" >
+            <option value="false">SHOW HIDDEN</option>
+            <option value="true">SHOW ALL</option>
+          </select>
         </div>
 
         <div className="ideaContainer">
           {ideaList}
         </div>
-        </div>
+
+      </div>
         )
       }
 

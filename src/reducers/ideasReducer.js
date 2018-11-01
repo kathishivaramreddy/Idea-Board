@@ -18,7 +18,8 @@ export default function(state=initialState,action) {
           {text:action.payload,
           industry:action.industry,
           visibility:true,
-          id:action.id
+          id:action.id,
+          description:action.description
         }]
       }
       case VISIBILITY:
