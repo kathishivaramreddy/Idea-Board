@@ -1,25 +1,29 @@
 .ideaBox{
 
-  width:20%;
-  height:50%;
+  width:19%;
+  height:45%;
   border:3px solid white;
   float:left;
+  margin:2px;
   box-shadow: 0px 8px 16px darkslategray;
+  background-color: yellow;
 
 }
 .ideaContainer{
   position:fixed;
-  width: 70%;
+  width: 72%;
   height: 80%;
   max-height:90%;
   margin: 20px;
   background-color: white;
   box-shadow: 0px 8px 16px darkslategrey;
-  top:12%;
+  top:14%;
   left:15%;
-  overflow-y: hidden;
+  overflow-y: scroll;
 }
-
+.ideaText{
+  height: 30%;
+}
 *{
   box-sizing: border-box;
 }
