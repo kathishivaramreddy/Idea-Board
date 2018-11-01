@@ -8,13 +8,13 @@ const initialState = {
 }
 
 export default function(state=initialState,action) {
-
+  console.log(action,'reducer')
   switch(action.type){
 
     case ADD_IDEA:
       return {
         ...state,
-        ideas:[...state.ideas,action.text]
+        ideas:[...state.ideas,action.payload]
       }
     default:
     return state;

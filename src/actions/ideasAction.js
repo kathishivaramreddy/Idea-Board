@@ -1,10 +1,10 @@
 import {ADD_IDEA} from './types';
 
 
-export const ideasAction= (txt) => dispatch => {
-
+export const ideasAction = (text) => dispatch => {
+  console.log(text,'action')
   return dispatch({
     type:ADD_IDEA,
-    txt
+    payload:text
   })
 }
